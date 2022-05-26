@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { Module } from '@nestjs/common';
-import { ApolloDriver } from '@nestjs/apollo';
+import { ApolloFederationDriver } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 
@@ -17,7 +17,7 @@ import { StudentsService } from './services/students.service';
     ConfigModule.forRoot(),
     DatabaseModule,
     GraphQLModule.forRoot({
-      driver: ApolloDriver,
+      driver: ApolloFederationDriver,
       autoSchemaFile: path.resolve(process.cwd(), 'src/schema.gql'),
     }),
   ],
